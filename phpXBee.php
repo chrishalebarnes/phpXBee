@@ -720,9 +720,11 @@ class XBee extends phpSerial {
 	 * 
 	 * Note that you can send raw serial with sendMessage from phpSerial
 	 * @return void
+          * @param $waitForOpened int amount to sleep after openeing in seconds. Defaults to 0.1
 	 */
-	public function open() {
+	public function open($waitForOpened=0.1) {
 		$this -> deviceOpen();
+                  usleep((int) ($waitForOpened * 1000000));
 	}
 
 	/**
